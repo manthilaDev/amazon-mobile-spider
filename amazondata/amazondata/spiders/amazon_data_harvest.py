@@ -15,7 +15,7 @@ class amazonSpider(scrapy.Spider):
         items = AmazondataItem()
 
         product_name = response.xpath("//span[@class='a-size-medium a-color-base a-text-normal']/text()").getall()
-        product_rate = response.xpath("//div[@class='a-row a-size-small']/span/span/a/i/span/text()").getall()
+        product_rate = response.xpath("//div[@class='a-row a-size-small']/span/span[@class='a-declarative']/a[@class='a-popover-trigger a-declarative']/i/span[@class='a-icon-alt']/text()").getall()
         product_link = response.xpath("//h2[@class]/a[@class='a-link-normal a-text-normal']/@href").getall()
 
         items['product_name'] = product_name
